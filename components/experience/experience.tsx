@@ -22,7 +22,7 @@ export function Experience() {
                 <div className="w-full" >
                     <div className='flex w-full'>
                         <div className="w-0.5 rounded-3xl bg-black ml-10 mr-12"></div>
-                        <ul className='list-disc flex-1 pt-2 pb-6 pr-2'>
+                        <ul className='list-disc flex-1 pt-2 pb-6 pr-2 space-y-1.5'>
                             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem maiores unde saepe vitae libero ratione necessitatibus consectetur voluptatem velit, sunt quis ipsum, dolorum, a assumenda ea blanditiis earum cupiditate sed?</li>
                             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae perferendis rerum praesentium culpa qui explicabo accusamus. Totam, impedit. Totam temporibus ab sapiente fugiat earum vitae aliquam cumque est, ipsa repellat.</li>
                             <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa ratione ea praesentium! Rem similique praesentium accusantium sint voluptatum ullam veniam possimus quisquam consequatur voluptate minima nostrum odit, molestias mollitia doloremque.</li>
