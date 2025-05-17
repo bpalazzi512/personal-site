@@ -1,5 +1,4 @@
 import { Github, Link2Icon } from "lucide-react";
-import { Pill } from "./pill";
 import { PillGroup } from "./pill-group";
 
 
@@ -42,9 +41,7 @@ export const Projects = () => {
                 </div>
                 <p className="text-gray-200">Image compression tool that reduces the resolution of pictures while preserving the main content by removing the least significant seam of pictures. Built for Northeastern&apos;s CS2510 class.</p>
                 <div className="flex flex-row space-x-2 space-y-2 flex-wrap">
-                    <Pill title="Java" fontTheme="context"/>
-                    <Pill title="JUnit" fontTheme="context"/>
-                    <Pill title="GUI" fontTheme="context"/>
+                    <PillGroup pillTitles={["Java", "JUnit", "GUI"]} fontTheme="text-context"/>
                     
                 </div>
             </div>
