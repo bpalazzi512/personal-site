@@ -6,15 +6,14 @@ import { Contact } from "@/components/contact/contact";
 
 export default function Home() {
   return (
-    
-    <>
-      <div className="w-full h-full flex flex-col items-center justify-center" >
-        <Header/>
+    <main className="w-full min-h-screen">
+      <Header/>
+      <div className="w-full flex flex-col items-center">
         <About/>
-        <Experience />
+        <Experience/>
         <Projects/>
         <Contact/>
       </div>
-    </>
+    </main>
   );
 }

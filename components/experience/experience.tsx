@@ -5,7 +5,7 @@ import khouryLogo from '../../public/khouryLogo.png';
 export function Experience() {
 
     return (
-        <div className='min-h-screen'>
+        <div id="experience" className='min-h-screen scroll-mt-15'>
             <div className="w-full text-left p-2">
                 <h1 className="font-extrabold text-xl">Experience</h1>
             </div>

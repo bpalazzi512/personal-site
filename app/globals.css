@@ -7,6 +7,7 @@
 
 
 @theme inline {
+  --color-image-compression: #3a7859;
   --color-pulse: #D53F3F;
   --color-roadar: #082A74;
   --color-context: #107db6;
