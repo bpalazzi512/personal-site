@@ -26,7 +26,9 @@ export function About() {
             </div>
             <a href="" className="px-3 py-1 rounded-md h-12 flex items-center justify-center mt-4 relative group">
                 <h3 className="text-black text-lg">
-                    <WavyUnderline className="space-y-0.5"> Download My Resume</WavyUnderline>
+                    <WavyUnderline className="space-y-1 transition-transform duration-100 hover:scale-110"> 
+                        <p className="">Download My Resume</p>
+                    </WavyUnderline>
                 </h3>
             </a>
         </div>
