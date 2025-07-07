@@ -6,20 +6,22 @@ interface ProjectCardProps {
     githubLink?: string;
     liveLink?: string;
     pillTitles: string[];
-    backgroundColor: string;
+    color: fontTheme;
 }
 import React from 'react';
 import { Github, Link2Icon } from "lucide-react";
 import { PillGroup } from "./pill-group";
+import { fontTheme } from '@/lib/types';
 
-export function ProjectCard({ title, description, githubLink, liveLink, pillTitles, backgroundColor } : ProjectCardProps) {
+export function ProjectCard({ title, description, githubLink, liveLink, pillTitles, color } : ProjectCardProps) {
+    const borderColor = "border-" + color;
     return (
-        <div className={`max-w-full min-h-[300px] p-3 rounded-md m-2 flex flex-col justify-between ${backgroundColor}`}>
+        <div className={`max-w-full md:max-w-5/12 min-h-[300px] p-3 rounded-md m-2 flex flex-col justify-between border ${borderColor}`}>
             <div className="flex flex-row items-center space-x-4">
                 <h1 className="text-xl text-white">{title}</h1>
                 {githubLink && (
                     <a href={githubLink} target="_blank" rel="noopener noreferrer">
-                        <Github className='transition-transform duration-100 hover:scale-109' />
+                        <Github className='transition-transform duration-100 hover:scale-109' color='white'/>
                     </a>
                 )}
                 {liveLink && (
@@ -29,12 +31,7 @@ export function ProjectCard({ title, description, githubLink, liveLink, pillTitl
                 )}
             </div>
             <p className="text-gray-200">{description}</p>
-            <div className="flex flex-row space-x-2
- space-y-2 flex-wrap">
-                {pillTitles.map((title, index) => (
-                    <span key={index} className={`px-2 py-1 rounded-full text-xs font-semibold ${backgroundColor}`}>{title}</span>
-                ))}
-            </div>
+            <PillGroup pillTitles={pillTitles} fontTheme={color} />
         </div>
     );
 }

@@ -1,3 +1,3 @@
 
 
-export type fontTheme = "text-roadar" | "text-context" | "text-pulse" | "text-image-compression"
+export type fontTheme = "roadar" | "context" | "pulse" | "image-compression"
