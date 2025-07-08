@@ -7,7 +7,7 @@ interface ExperienceCardProps {
 
 export function ExperienceCard({ title, company, period, description }: ExperienceCardProps) {
     return (
-        <div className='border border-slate-300 rounded-lg p-4 w-11/12 lg:w-full'>
+        <div className='border border-slate-300 rounded-lg p-4 w-11/12 lg:w-full shadow-md hover:shadow-lg transition-all duration-300'>
             <div className='w-full flex flex-row items-center justify-between'>
                 <div className='w-full'>
                     <h2 className='font-bold'>{title}</h2>
