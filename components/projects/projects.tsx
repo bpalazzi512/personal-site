@@ -8,6 +8,7 @@ interface Project {
     liveLink?: string;
     pillTitles: string[];
     color: fontTheme;
+    timeRange: string;
 }
 
 const projects : Project[]= [
@@ -17,31 +18,35 @@ const projects : Project[]= [
         githubLink: "espn.com", // Replace with actual GitHub link 
         liveLink: "", // Replace with actual live link if available
         pillTitles: ["Go", "Typescript", "React Native", "Expo", "MongoDB", "Websockets", "Apple OAuth"],
-        color: "roadar"
+        color: "roadar",
+        timeRange: "February 2025"
     },
     {
         title: "Pulse",
         description: "A social media for text-based posts about anything and everything, but posts with net-negative votes are deleted. Built for my Tech & Human Values (philosophy) final project. Read here to see how it relates to philosophy.",
-        githubLink: "espn.com", // Replace with actual GitHub link 
+        githubLink: "https://www.espn.com", // Replace with actual GitHub link 
         liveLink: "", // Replace with actual live link if available
         pillTitles: ["Typescript", "React", "NestJS", "PostgreSQL"],
-        color: "pulse"
+        color: "pulse",
+        timeRange: "Nov 2024 - Dec 2024"
     },
-    // {
-    //     title: "Context",
-    //     description: "A travel platform to match people with their ideal EU country using their own preferences. Built for Northeastern University's Data in Government summer program in Leuven, Brussels.",
-    //     githubLink: "espn.com", // Replace with actual GitHub link 
-    //     liveLink: "", // Replace with actual live link if available
-    //     pillTitles: ["Python", "Flask", "Streamlit", "Pandas", "NumPy", "Plotly", "PostgreSQL", "Docker"],
-    //     color: "bg-[#107db6]"
-    // },
+    {
+        title: "Context",
+        description: "A travel platform to match people with their ideal EU country using their own preferences. Built for Northeastern University's Data in Government summer program in Leuven, Brussels.",
+        githubLink: "espn.com", // Replace with actual GitHub link 
+        liveLink: "", // Replace with actual live link if available
+        pillTitles: ["Python", "Flask", "Streamlit", "Pandas", "NumPy", "Plotly", "PostgreSQL", "Docker"],
+        color: "context",
+        timeRange: "May 2024 - Jun 2024"
+    },
     {
         title: "Content-Aware Image Compression",
         description: "Image compression tool that reduces the resolution of pictures while preserving the main content by removing the least significant seam of pictures. Built for Northeastern's CS2510 class.",
-        githubLink: "", // Replace with actual GitHub link 
-        liveLink: "", // Replace with actual live link if available
+        githubLink: "asdf", // Replace with actual GitHub link 
+        liveLink: "asdf", // Replace with actual live link if available
         pillTitles: ["Java", "JUnit", "GUI"],
-        color: "image-compression" 
+        color: "image-compression",
+        timeRange: "March 2024 - April 2024"
     }
 ];
 
@@ -62,6 +67,7 @@ export function Projects() {
                             liveLink={project.liveLink}
                             pillTitles={project.pillTitles}
                             color={project.color}
+                            timeRange={project.timeRange}
                         />
                     
                 ))} 
