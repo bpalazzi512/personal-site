@@ -53,7 +53,7 @@ const projects : Project[]= [
 
 export function Projects() {
     return (
-        <div id="projects" className='min-h-screen scroll-mt-20 mt-20 w-11/12 lg:w-4xl'>
+        <div id="projects" className='min-h-screen scroll-mt-25 mt-20 w-11/12 lg:w-4xl'>
             <div className="w-full text-left mb-10">
                 <h1 className="font-extrabold text-3xl underline underline-offset-8 decorationblue-500">PROJECTS</h1>
             </div>

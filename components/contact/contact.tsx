@@ -204,10 +204,44 @@ export function Contact() {
 
         setLoading(true);
         try {
-            const subject = `Contact from ${name}`;
-            const htmlBody = `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong><br/>${message}</p>`;
-            console.log(email, subject, htmlBody);
-            await sendEmail(email, subject, htmlBody);
+            // Email to the user (confirmation)
+            const userSubject = `Message Sent to Bobby Palazzi`;
+            const userHtmlBody = `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #333;">Thank you for your message!</h2>
+                    <p>You sent the following message to Bobby Palazzi:</p>
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                        <p><strong>Your Name:</strong> ${name}</p>
+                        <p><strong>Your Email:</strong> ${email}</p>
+                        <p><strong>Your Message:</strong></p>
+                        <div style="white-space: pre-wrap; margin-top: 10px;">${message}</div>
+                    </div>
+                    <p>I'll get back to you as soon as possible!</p>
+                    <p style="color: #666; font-size: 14px; margin-top: 30px;">This is an automated confirmation email.</p>
+                </div>
+            `;
+            
+            // Email to Bobby (notification)
+            const bobbySubject = `New Contact Form Submission from ${name}`;
+            const bobbyHtmlBody = `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #333;">New Contact Form Submission</h2>
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Message:</strong></p>
+                        <div style="white-space: pre-wrap; margin-top: 10px;">${message}</div>
+                    </div>
+                    <p style="color: #666; font-size: 14px;">Sent from your personal website contact form.</p>
+                </div>
+            `;
+            
+            // Send both emails
+            await Promise.all([
+                sendEmail(email, userSubject, userHtmlBody),
+                sendEmail('bobbypalazzi@gmail.com', bobbySubject, bobbyHtmlBody)
+            ]);
+            
             setSuccess(true);
             setEmail('');
             setName('');
@@ -229,7 +263,7 @@ export function Contact() {
     };
 
     return (
-        <div id="contact" className='min-h-screen w-11/12 lg:w-4xl mt-20  scroll-mt-20 flex flex-col items-center'>
+        <div id="contact" className='min-h-screen w-11/12 lg:w-4xl mt-20  scroll-mt-25 flex flex-col items-center'>
             <div className="w-full text-left mb-10">
                 <h1 className="font-extrabold text-3xl underline underline-offset-8 decorationblue-500">CONTACT</h1>
             </div>
