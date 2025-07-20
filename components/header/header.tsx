@@ -112,6 +112,9 @@ export function Header() {
 
     return (
         <header className={`w-full sticky top-0 bg-white z-50 transition-shadow duration-300 ${!isAtTop ? 'shadow-sm' : ''}`}>
+            <div className='w-full bg-red-200 flex items-center justify-center'>
+                <h1 className=''>WARNING: This website is a work in progress. It is not yet fully functional.</h1>
+            </div>
             <nav className="w-full flex justify-center items-center space-x-8 p-4 relative">
                 {['About', 'Experience', 'Projects', 'Contact'].map((section) => (
                     <a

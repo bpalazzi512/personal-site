@@ -229,16 +229,36 @@ export function Contact() {
     };
 
     return (
-        <div id="contact" className='min-h-screen w-full max-w-3xl scroll-mt-15'>
-            <h1 className='text-xl font-extrabold mb-8'>Contact</h1>
+        <div id="contact" className='min-h-screen w-11/12 lg:w-4xl mt-20  scroll-mt-20 flex flex-col items-center'>
+            <div className="w-full text-left mb-10">
+                <h1 className="font-extrabold text-3xl underline underline-offset-8 decorationblue-500">CONTACT</h1>
+            </div>
+            <p className='text-gray-400 text-lg mb-5 w-10/12'>
+                You can contact me using the following information: 
+            </p>
+            <div className='flex flex-col items-center space-y-3 w-full'>
+                <p className='text-gray-600 text-lg'>
+                    Personal Email: <a href='mailto:bobbypalazzi@gmail.com' className='font-bold'>bobbypalazzi@gmail.com</a>
+                </p>
+                <p className='text-gray-600 text-lg'>
+                    School Email: <a href='mailto:palazzi.r@northeastern.edu' className='font-bold'>palazzi.r@northeastern.edu</a>
+                </p>
+                <p className='text-gray-600 text-lg'>
+                    Phone: <span className='font-bold'>201-259-4652</span>
+                </p>
+            </div>
+            <p className='text-gray-400 text-lg mt-5 mb-5 w-10/12'>
+                Or, you can fill out the form below:
+            </p>
+            
             <form className='flex flex-col items-center space-y-3 w-full' onSubmit={handleSubmit}>
                 {/* Email Input */}
-                <div className="relative w-11/12 max-w-96">
+                <div className="relative w-10/12">
                     <input
                         type="email"
                         placeholder='Email'
                         className={cn(
-                            "border-2 border-slate-400 rounded-sm p-2 w-full max-w-96 text-md transition-colors duration-200 pr-10",
+                            "border-2 border-slate-400 rounded-sm p-2 w-full text-md transition-colors duration-200 pr-10",
                         )}
                         value={email}
                         onChange={handleEmailChange}
@@ -259,12 +279,12 @@ export function Contact() {
                 </div>
 
                 {/* Name Input */}
-                <div className="relative w-11/12 max-w-96">
+                <div className="relative w-10/12 ">
                     <input
                         type="text"
                         placeholder='Name'
                         className={cn(
-                            "border-2 border-slate-400 rounded-sm p-2 w-full max-w-96 text-md transition-colors duration-200 pr-10",
+                            "border-2 border-slate-400 rounded-sm p-2 w-full text-md transition-colors duration-200 pr-10",
                         )}
                         value={name}
                         onChange={handleNameChange}
@@ -285,9 +305,9 @@ export function Contact() {
                 </div>
 
                 {/* Message Input */}
-                <div className="relative w-11/12 max-w-96">
+                <div className="relative w-10/12">
                     <textarea
-                        className='border-2 border-slate-400 rounded-sm p-2 w-full max-w-96 h-52 resize-none text-md transition-colors duration-200 pr-10'
+                        className='border-2 border-slate-400 rounded-sm p-2 w-full h-52 resize-none text-md transition-colors duration-200 pr-10'
                         placeholder='Message'
                         value={message}
                         onChange={handleMessageChange}
@@ -310,7 +330,7 @@ export function Contact() {
                 <button
                     type="submit"
                     className={cn(
-                        "w-11/12 max-w-96 p-3 bg-gray-800 rounded-sm flex items-center justify-between cursor-pointer transition-all duration-200 hover:scale-102 disabled:opacity-50 disabled:cursor-not-allowed",
+                        "w-11/12 max-w-96 p-3 bg-gray-800 rounded-sm flex items-center justify-between cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
                         allFieldsValid ? "bg-gray-800 hover:scale-105" : "bg-gray-600"
                     )}
                     disabled={loading || !allFieldsValid}

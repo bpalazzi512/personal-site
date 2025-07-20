@@ -17,7 +17,7 @@ export async function sendEmail(to: string, subject: string, htmlBody: string) {
   const message = [
     'Content-Type: text/html; charset="UTF-8"',
     'MIME-Version: 1.0',
-    `From: no-reply@palazzi.dev`,
+    `From: "Palazzi Dot Dev" <no-reply@palazzi.dev>`,
     `To: ${to}`,
     `Subject: ${subject}`,
     '',
