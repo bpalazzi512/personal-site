@@ -20,7 +20,10 @@ export async function sendEmail(to: string, subject: string, htmlBody: string) {
     `From: "Palazzi Dot Dev" <no-reply@palazzi.dev>`,
     `To: ${to}`,
     `Subject: ${subject}`,
-    '',
+    `Reply-To: no-reply@palazzi.dev`,
+    `Return-Path: no-reply@palazzi.dev`,
+    `Message-ID: <${Date.now()}.${Math.random()}@palazzi.dev>`,
+    `Date: ${new Date().toUTCString()}`,
     htmlBody
   ].join('\n');
 
