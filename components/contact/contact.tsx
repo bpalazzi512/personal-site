@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CornerRightUpIcon, Loader2, CheckCircle, XCircle } from 'lucide-react';
 import { sendEmail } from '@/lib/actions/gmail';
 import { cn } from '@/lib/utils';
+import { Filter } from 'bad-words';
 
 export function Contact() {
     const [email, setEmail] = useState('');
@@ -31,6 +32,9 @@ export function Contact() {
     const nameDebounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
     const messageDebounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
+    // Initialize profanity filter
+    const filter = new Filter();
+
     // Validation functions
     const validateEmail = (email: string): boolean => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -42,7 +46,9 @@ export function Contact() {
     };
 
     const validateMessage = (message: string): boolean => {
-        return message.trim().length >= 10;
+        const hasMinLength = message.trim().length >= 10;
+        const hasNoProfanity = !filter.isProfane(message);
+        return hasMinLength && hasNoProfanity;
     };
 
     // Check if all fields are valid
@@ -198,7 +204,18 @@ export function Contact() {
         setMessageTouched(true);
 
         if (!isEmailValid || !isNameValid || !isMessageValid) {
-            setError('Please fill in all fields correctly.');
+            // Provide specific error messages
+            if (!isEmailValid) {
+                setError('Please enter a valid email address.');
+            } else if (!isNameValid) {
+                setError('Name must be at least 2 characters long.');
+            } else if (message.trim().length < 10) {
+                setError('Message must be at least 10 characters long.');
+            } else if (filter.isProfane(message)) {
+                setError('Message contains inappropriate content. Please revise your message.');
+            } else {
+                setError('Please fill in all fields correctly.');
+            }
             return;
         }
 
