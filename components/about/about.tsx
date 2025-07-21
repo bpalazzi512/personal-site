@@ -18,7 +18,7 @@ export function About() {
                     <LinkedinIcon color='#0a66c2' size="40px"/>
                 </a>
 
-                <a href="https://www.github.com/bpalazz512" className='transition-transform duration-100 hover:scale-110'>
+                <a href="https://www.github.com/bpalazzi512" className='transition-transform duration-100 hover:scale-110'>
                     <Github color='#2b3137' size="40px" />
                 </a>
                 
