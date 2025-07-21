@@ -4,6 +4,7 @@ import { CornerRightUpIcon, Loader2, CheckCircle, XCircle } from 'lucide-react';
 import { sendEmail } from '@/lib/actions/gmail';
 import { cn } from '@/lib/utils';
 import { Filter } from 'bad-words';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export function Contact() {
     const [email, setEmail] = useState('');
@@ -12,6 +13,7 @@ export function Contact() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState(false);
+    
     
     // Email validation states
     const [emailValid, setEmailValid] = useState<boolean | null>(null);
@@ -28,12 +30,19 @@ export function Contact() {
     const [messageTouched, setMessageTouched] = useState(false);
     const [isValidatingMessage, setIsValidatingMessage] = useState(false);
     
+    // Recaptcha state
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+    const [recaptchaError, setRecaptchaError] = useState<string | null>(null);
+    
     const emailDebounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
     const nameDebounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
     const messageDebounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
     // Initialize profanity filter
     const filter = new Filter();
+
+    // Recaptcha site key from env
+    const recaptchaSiteKey = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY || '';
 
     // Validation functions
     const validateEmail = (email: string): boolean => {
@@ -129,6 +138,11 @@ export function Contact() {
         };
     }, [message, messageTouched]);
 
+    const handleRecaptchaChange = (token: string | null) => {
+        setRecaptchaToken(token);
+        setRecaptchaError(null);
+    };
+
     // Handle email input change
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -190,7 +204,14 @@ export function Contact() {
         e.preventDefault();
         setError(null);
         setSuccess(false);
+        setRecaptchaError(null);
         
+        // Validate recaptcha
+        if (!recaptchaToken) {
+            setRecaptchaError('Please complete the reCAPTCHA.');
+            return;
+        }
+
         // Validate all fields on submit
         const isEmailValid = validateEmail(email);
         const isNameValid = validateName(name);
@@ -221,23 +242,6 @@ export function Contact() {
 
         setLoading(true);
         try {
-            // Email to the user (confirmation)
-            const userSubject = `Message Sent to Bobby Palazzi`;
-            const userHtmlBody = `
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                    <h2 style="color: #333;">Thank you for your message!</h2>
-                    <p>You sent the following message to Bobby Palazzi:</p>
-                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                        <p><strong>Your Name:</strong> ${name}</p>
-                        <p><strong>Your Email:</strong> ${email}</p>
-                        <p><strong>Your Message:</strong></p>
-                        <div style="white-space: pre-wrap; margin-top: 10px;">${message}</div>
-                    </div>
-                    <p>I'll get back to you as soon as possible!</p>
-                    <p style="color: #666; font-size: 14px; margin-top: 30px;">This is an automated confirmation email.</p>
-                </div>
-            `;
-            
             // Email to Bobby (notification)
             const bobbySubject = `New Contact Form Submission from ${name}`;
             const bobbyHtmlBody = `
@@ -252,12 +256,8 @@ export function Contact() {
                     <p style="color: #666; font-size: 14px;">Sent from your personal website contact form.</p>
                 </div>
             `;
-            
             // Send both emails
-            await Promise.all([
-                sendEmail(email, userSubject, userHtmlBody),
-                sendEmail('bobbypalazzi@gmail.com', bobbySubject, bobbyHtmlBody)
-            ]);
+            await sendEmail('bobbypalazzi@gmail.com', bobbySubject, bobbyHtmlBody, recaptchaToken);
             
             setSuccess(true);
             setEmail('');
@@ -272,6 +272,7 @@ export function Contact() {
             setIsValidatingEmail(false);
             setIsValidatingName(false);
             setIsValidatingMessage(false);
+            setRecaptchaToken(null);
         } catch {
             setError('Failed to send message. Please try again.');
         } finally {
@@ -378,13 +379,22 @@ export function Contact() {
                     </div>
                 </div>
 
+                {/* Recaptcha */}
+                <div className="w-10/12 flex justify-center">
+                    <ReCAPTCHA
+                        sitekey={recaptchaSiteKey}
+                        onChange={handleRecaptchaChange}
+                        theme="light"
+                    />
+                </div>
+                {recaptchaError && <div className='text-red-500 text-sm'>{recaptchaError}</div>}
+
                 <button
                     type="submit"
                     className={cn(
-                        "w-11/12 max-w-96 p-3 bg-gray-800 rounded-sm flex items-center justify-between cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
-                        allFieldsValid ? "bg-gray-800 hover:scale-105" : "bg-gray-600"
+                        "w-11/12 max-w-96 p-3 bg-gray-800 rounded-sm flex items-center justify-between cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 hover:scale-105"
                     )}
-                    disabled={loading || !allFieldsValid}
+                    disabled={loading || !allFieldsValid || !recaptchaToken}
                 >
                     <h1 className='text-lg text-gray-300'>
                         {loading ? 'Sending...' : 'Send'}
