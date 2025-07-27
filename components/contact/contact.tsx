@@ -13,7 +13,11 @@ export function Contact() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState(false);
-    
+
+    const env = process.env.NEXT_PUBLIC_NODE_ENV;
+
+    const isProd = env === 'production';
+
     
     // Email validation states
     const [emailValid, setEmailValid] = useState<boolean | null>(null);
@@ -207,7 +211,7 @@ export function Contact() {
         setRecaptchaError(null);
         
         // Validate recaptcha
-        if (!recaptchaToken) {
+        if (isProd && !recaptchaToken) {
             setRecaptchaError('Please complete the reCAPTCHA.');
             return;
         }
@@ -380,6 +384,7 @@ export function Contact() {
                 </div>
 
                 {/* Recaptcha */}
+                {isProd && (
                 <div className="w-10/12 flex justify-center">
                     <ReCAPTCHA
                         sitekey={recaptchaSiteKey}
@@ -387,6 +392,7 @@ export function Contact() {
                         theme="light"
                     />
                 </div>
+                )}
                 {recaptchaError && <div className='text-red-500 text-sm'>{recaptchaError}</div>}
 
                 <button
@@ -394,7 +400,7 @@ export function Contact() {
                     className={cn(
                         "w-11/12 max-w-96 p-3 bg-gray-800 rounded-sm flex items-center justify-between cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 hover:scale-105"
                     )}
-                    disabled={loading || !allFieldsValid || !recaptchaToken}
+                    disabled={loading || !allFieldsValid || (isProd && !recaptchaToken)}
                 >
                     <h1 className='text-lg text-gray-300'>
                         {loading ? 'Sending...' : 'Send'}
