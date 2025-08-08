@@ -7,9 +7,14 @@ export function Experience() {
             company: "Wolters Kluwer",
             period: "January 2025 - Present",
             description: [
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem maiores unde saepe vitae libero ratione necessitatibus consectetur voluptatem velit, sunt quis ipsum, dolorum, a assumenda ea blanditiis earum cupiditate sed?",
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae perferendis rerum praesentium culpa qui explicabo accusamus. Totam, impedit. Totam temporibus ab sapiente fugiat earum vitae aliquam cumque est, ipsa repellat.",
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa ratione ea praesentium! Rem similique praesentium accusantium sint voluptatum ullam veniam possimus quisquam consequatur voluptate minima nostrum odit, molestias mollitia doloremque."
+                "Designing and implementing the creation of cloud infrastructure across 15+ different environments using Terraform",
+                "Collaborating across 10+ development/DevOps teams to align projects, releases, and patches",
+                "Managing applications, services, and automatiuons on Kubernetes clusters using custom Helm charts and Argo CD",
+                "Building and maintaining CI/CD pipelines and batch job orchestrations across Azure and AWS", 
+                "Refactored custom Kubernetes controller written in Go to align with the Kubernetes API standard of conditions",
+                "Created an Azure logic app integrated with the Slack/Office365 API to notify our team of any new public-facing infrastructure that gets provisioned", 
+                "Consolidated legacy Terraform configuration and moved still-relevant code into existing modules",
+                "Improved error messages across our Helm charts to account for complex, layered configuration that previously made debugging difficult",
             ]
         },
         {
