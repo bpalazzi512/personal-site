@@ -15,7 +15,7 @@ const projects : Project[]= [
     {
         title: "Roadar",
         description: "A crowdsourced roadside assistance mobile app with the aim of connecting mechanics with stranded passengers. Built in 36 hours for Northeastern's student-run HackBeanpot.",
-        githubLink: "espn.com", // Replace with actual GitHub link 
+        githubLink: "https://github.com/abhikaboy/roadar", // Replace with actual GitHub link 
         liveLink: "", // Replace with actual live link if available
         pillTitles: ["Go", "Typescript", "React Native", "Expo", "MongoDB", "Websockets", "Apple OAuth"],
         color: "roadar",
@@ -24,7 +24,7 @@ const projects : Project[]= [
     {
         title: "Pulse",
         description: "A social media for text-based posts about anything and everything, but posts with net-negative votes are deleted. Built for my Tech & Human Values (philosophy) final project. Read [here](https://docs.google.com/document/d/1OyLA9VlOWuNJmvQd-5xLWiY3LMPJNkA-FrffOw_XBno/edit?tab=t.0) to see how it relates to philosophy.",
-        githubLink: "https://www.espn.com", // Replace with actual GitHub link 
+        githubLink: "https://github.com/bpalazzi512/Pulse", // Replace with actual GitHub link 
         liveLink: "", // Replace with actual live link if available
         pillTitles: ["Typescript", "React", "NestJS", "PostgreSQL"],
         color: "pulse",
@@ -33,7 +33,7 @@ const projects : Project[]= [
     {
         title: "Context",
         description: "A travel platform to match people with their ideal EU country using their own preferences. Built for Northeastern University's Data in Government summer program in Leuven, Brussels.",
-        githubLink: "espn.com", // Replace with actual GitHub link 
+        githubLink: "https://github.com/bpalazzi512/CONTEXT", // Replace with actual GitHub link 
         liveLink: "", // Replace with actual live link if available
         pillTitles: ["Python", "Flask", "Streamlit", "Pandas", "NumPy", "Plotly", "PostgreSQL", "Docker"],
         color: "context",
@@ -42,8 +42,8 @@ const projects : Project[]= [
     {
         title: "Content-Aware Image Compression",
         description: "Image compression tool that reduces the resolution of pictures while preserving the main content by removing the least significant seam of pictures. Built for Northeastern's CS2510 class.",
-        githubLink: "asdf", // Replace with actual GitHub link 
-        liveLink: "asdf", // Replace with actual live link if available
+        // githubLink: "asdf", // Replace with actual GitHub link 
+        // liveLink: "asdf", // Replace with actual live link if available
         pillTitles: ["Java", "JUnit", "GUI"],
         color: "image-compression",
         timeRange: "March 2024 - April 2024"
