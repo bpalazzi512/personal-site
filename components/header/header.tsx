@@ -7,42 +7,7 @@ export function Header() {
     const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
     const [isAtTop, setIsAtTop] = useState(true);
 
-    useEffect(() => {
-        const handleScrollEnd = () => {
-            setIsScrolling(false);
-        };
 
-        // Add event listener for scrollend
-        window.addEventListener('scrollend', handleScrollEnd);
-
-        // Fallback for browsers that don't support scrollend
-        const fallbackTimeout = setTimeout(() => {
-            if (!('onscrollend' in window)) {
-                let lastKnownScroll = (window as Window).scrollY;
-                
-                const checkScrollStop = () => {
-                    if ((window as Window).scrollY === lastKnownScroll) {
-                        setIsScrolling(false);
-                    } else {
-                        lastKnownScroll = (window as Window).scrollY;
-                        setTimeout(checkScrollStop, 100);
-                    }
-                };
-
-                (window as Window).addEventListener('scroll', () => {
-                    if (isScrolling) {
-                        lastKnownScroll = (window as Window).scrollY;
-                        setTimeout(checkScrollStop, 100);
-                    }
-                });
-            }
-        }, 0);
-
-        return () => {
-            window.removeEventListener('scrollend', handleScrollEnd);
-            clearTimeout(fallbackTimeout);
-        };
-    }, []);
 
     useEffect(() => {
         const sections = ['about', 'experience', 'projects', 'contact'];
@@ -86,7 +51,7 @@ export function Header() {
         // Initial check
         handleScroll();
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isScrolling, activeSection]);
 
@@ -109,14 +74,14 @@ export function Header() {
         // Check initial position
         handleScroll();
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, section: string) => {
         e.preventDefault();
         
-        if (isScrolling || activeSection === section.toLowerCase()) return;
+        if (isScrolling) return;
 
         const element = document.getElementById(section.toLowerCase());
         if (element) {
@@ -127,6 +92,11 @@ export function Header() {
                 behavior: 'smooth',
                 block: 'start'
             });
+
+            // Reset scrolling state after a delay - mobile needs longer
+            setTimeout(() => {
+                setIsScrolling(false);
+            }, 1500);
         }
     };
 
