@@ -41,7 +41,7 @@ export function Experience() {
     ];
 
     return (
-        <div id="experience" className='min-h-screen scroll-mt-25 mt-20 md:mt-0 w-11/12 lg:w-4xl'>
+        <div id="experience" className='min-h-screen scroll-mt-25 mt-20 md:mt-0 w-11/12 lg:w-4xl bg-white'>
             <div className="w-full text-left mb-10">
                 <h1 className="font-extrabold text-3xl underline underline-offset-8 decorationblue-500">EXPERIENCE</h1>
             </div>

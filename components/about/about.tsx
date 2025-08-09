@@ -23,7 +23,7 @@ export function About() {
     }, []);
 
     return (
-        <div id="about" className="min-h-screen w-full flex flex-col items-center max-w-3xl scroll-mt-15 relative">
+        <div id="about" className="min-h-screen w-full flex flex-col items-center max-w-3xl scroll-mt-15 relative bg-white">
             <Image src={headshot} alt="" className="rounded-full object-cover w-60 h-60 border-2 border-gray-400 mt-12"/>
             <h1 className="font-semibold text-3xl mt-2">Hi, I&apos;m Bobby</h1>
             
