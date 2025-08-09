@@ -88,15 +88,29 @@ export function Header() {
             setIsScrolling(true);
             setActiveSection(section.toLowerCase());
             
+            const targetScrollY = element.offsetTop - 100; // Account for header
+            
             element.scrollIntoView({ 
                 behavior: 'smooth',
                 block: 'start'
             });
 
-            // Reset scrolling state after a delay - mobile needs longer
+            // Check when scroll animation finishes by monitoring scroll position
+            const checkScrollComplete = () => {
+                const currentScroll = window.scrollY;
+                const tolerance = 10; // Allow small differences
+                
+                if (Math.abs(currentScroll - targetScrollY) <= tolerance) {
+                    setIsScrolling(false);
+                } else {
+                    requestAnimationFrame(checkScrollComplete);
+                }
+            };
+            
+            // Start checking after a small delay to let animation begin
             setTimeout(() => {
-                setIsScrolling(false);
-            }, 1500);
+                requestAnimationFrame(checkScrollComplete);
+            }, 100);
         }
     };
 

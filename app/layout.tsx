@@ -18,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="color-scheme" content="light only" />
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,2,300,501,401,901&display=swap" rel="stylesheet" />
       </head>
       <body className="font-satoshi bg-white">
