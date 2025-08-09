@@ -88,7 +88,8 @@ export function Header() {
             setIsScrolling(true);
             setActiveSection(section.toLowerCase());
             
-            const targetScrollY = element.offsetTop - 100; // Account for header
+            const targetScrollY = Math.max(element.offsetTop - 100, 0); // Account for header
+            console.log("targetScrollY", targetScrollY);
             
             element.scrollIntoView({ 
                 behavior: 'smooth',
