@@ -24,6 +24,7 @@ export async function sendEmail(to: string, subject: string, htmlBody: string, r
         if (!recaptchaToken) {
             throw new Error('Missing reCAPTCHA token');
         }
+        console.log("recaptchaToken", recaptchaToken);
         const secretKey = process.env.GOOGLE_RECAPTCHA_SECRET_KEY;
         const verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
         const params = new URLSearchParams();
@@ -37,7 +38,8 @@ export async function sendEmail(to: string, subject: string, htmlBody: string, r
         });
         const recaptchaData = await recaptchaRes.json() as { success: boolean };
         if (!recaptchaData.success) {
-            throw new Error('Failed reCAPTCHA verification');
+          console.log(recaptchaData);
+          throw new Error('Failed reCAPTCHA verification');
         }
     }
 
