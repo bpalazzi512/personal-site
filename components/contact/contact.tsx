@@ -260,8 +260,26 @@ export function Contact() {
                     <p style="color: #666; font-size: 14px;">Sent from your personal website contact form.</p>
                 </div>
             `;
+            // Email to user (confirmation)
+            const userSubject = `Thanks for reaching out, ${name}!`;
+            const userHtmlBody = `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #333;">Thank you for your message!</h2>
+                    <p>Hi ${name},</p>
+                    <p>I've received your message and will get back to you as soon as possible. Here's a copy of what you sent:</p>
+                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                        <div style="white-space: pre-wrap;">${message}</div>
+                    </div>
+                    <p>Best regards,<br>Bobby Palazzi</p>
+                    <p style="color: #666; font-size: 14px;">This is an automated confirmation email from bobbypalazzi.com</p>
+                </div>
+            `;
+
             // Send both emails
-            await sendEmail('bobbypalazzi@gmail.com', bobbySubject, bobbyHtmlBody, recaptchaToken);
+            await Promise.all([
+                sendEmail('bobbypalazzi@gmail.com', bobbySubject, bobbyHtmlBody, recaptchaToken),
+                sendEmail(email, userSubject, userHtmlBody, recaptchaToken)
+            ]);
             
             setSuccess(true);
             setEmail('');
@@ -408,7 +426,7 @@ export function Contact() {
                     <CornerRightUpIcon className='text-lg text-gray-300' />
                 </button>
                 {error && <div className='text-red-500 text-sm'>{error}</div>}
-                {success && <div className='text-green-600 text-sm'>Message sent successfully!</div>}
+                {success && <div className='text-green-600 text-sm'>Message sent successfully! Check your email for confirmation (may be in junk folder).</div>}
             </form>
         </div>
     );

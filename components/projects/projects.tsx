@@ -23,7 +23,7 @@ const projects : Project[]= [
     },
     {
         title: "Pulse",
-        description: "A social media for text-based posts about anything and everything, but posts with net-negative votes are deleted. Built for my Tech & Human Values (philosophy) final project. Read here to see how it relates to philosophy.",
+        description: "A social media for text-based posts about anything and everything, but posts with net-negative votes are deleted. Built for my Tech & Human Values (philosophy) final project. Read [here](https://docs.google.com/document/d/1OyLA9VlOWuNJmvQd-5xLWiY3LMPJNkA-FrffOw_XBno/edit?tab=t.0) to see how it relates to philosophy.",
         githubLink: "https://www.espn.com", // Replace with actual GitHub link 
         liveLink: "", // Replace with actual live link if available
         pillTitles: ["Typescript", "React", "NestJS", "PostgreSQL"],

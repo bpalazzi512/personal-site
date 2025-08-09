@@ -47,28 +47,48 @@ export function Header() {
     useEffect(() => {
         const sections = ['about', 'experience', 'projects', 'contact'];
         
-        const observerOptions = {
-            threshold: [0.1, 0.3],
-            rootMargin: '-100px 0px -100px 0px'
+        // Function to determine which section is currently most visible
+        const getCurrentSection = () => {
+            const scrollPosition = window.scrollY + 150; // Account for header height
+            
+            let currentSection = 'about'; // default
+            
+            for (const sectionId of sections) {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const elementTop = element.offsetTop;
+                    const elementBottom = elementTop + element.offsetHeight;
+                    
+                    // If scroll position is within this section
+                    if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+                        currentSection = sectionId;
+                        break;
+                    }
+                    // If we're past this section but haven't reached the next one
+                    else if (scrollPosition >= elementTop) {
+                        currentSection = sectionId;
+                    }
+                }
+            }
+            
+            return currentSection;
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const handleScroll = () => {
             if (isScrolling) return;
+            
+            const currentSection = getCurrentSection();
+            if (currentSection !== activeSection) {
+                setActiveSection(currentSection);
+            }
+        };
 
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
-                    setActiveSection(entry.target.id);
-                }
-            });
-        }, observerOptions);
+        // Initial check
+        handleScroll();
 
-        sections.forEach(section => {
-            const element = document.getElementById(section);
-            if (element) observer.observe(element);
-        });
-
-        return () => observer.disconnect();
-    }, [isScrolling]);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isScrolling, activeSection]);
 
     useEffect(() => {
         const activeElement = document.querySelector(`[href="#${activeSection}"]`);
@@ -96,7 +116,7 @@ export function Header() {
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, section: string) => {
         e.preventDefault();
         
-        if (isScrolling) return;
+        if (isScrolling || activeSection === section.toLowerCase()) return;
 
         const element = document.getElementById(section.toLowerCase());
         if (element) {
@@ -112,9 +132,6 @@ export function Header() {
 
     return (
         <header className={`w-full sticky top-0 bg-white z-50 transition-shadow duration-300 ${!isAtTop ? 'shadow-sm' : ''}`}>
-            <div className='w-full bg-red-200 flex items-center justify-center'>
-                <h1 className=''>WARNING: This website is a work in progress. It is not yet fully functional.</h1>
-            </div>
             <nav className="w-full flex justify-center items-center space-x-8 p-4 relative">
                 {['About', 'Experience', 'Projects', 'Contact'].map((section) => (
                     <a

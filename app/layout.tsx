@@ -20,7 +20,7 @@ export default function RootLayout({
       <head>
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,2,300,501,401,901&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-satoshi">
+      <body className="font-satoshi bg-white">
         {children}
       </body>
     </html>

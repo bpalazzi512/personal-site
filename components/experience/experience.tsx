@@ -22,15 +22,26 @@ export function Experience() {
             company: "Khoury College",
             period: "June 2024 - December 2024",
             description: [
-                "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos repellat quaerat odio repudiandae explicabo vel iusto, magni, animi, placeat quidem dolore molestiae laboriosam! Dolor soluta, facilis odit non optio vitae!",
-                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi voluptatem consequatur accusamus nisi, magni atque itaque cumque dolorum quibusdam quis error repudiandae, rem minus quae, non eius. Laudantium, nesciunt quod!",
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, deleniti aspernatur. Temporibus animi delectus commodi dolores. A, exercitationem repellendus! Nisi repudiandae quas repellendus laborum dicta soluta labore libero nesciunt distinctio?"
+                "Developed new and updated existing features in module-based learning platform, including a customized content creation portal, role-based access control, and group management using Next.js, Tailwind CSS, and Strapi CMS (see the repo [here](https://github.com/KhourySpecialProjects/odyssey) and the live site [here](https://khouryodyssey.org/))",
+                "Implemented CI/CD pipelines using GitHub Actions for staging and production workflows",
+                "Containerized system services with Docker, migrated application to AWS EKS for efficient testing and scaling",
+                "Generated thorough system architecture diagrams and documentation for the platform, reducing ramp-up time for new contributors"
+            ]
+        }, 
+        {
+            title: "Argos Software Developer",
+            company: "Northeastern Electric Racing",
+            period: "Jan 2024 - Dec 2024",
+            description: [
+                "Collaborated on development of a full-stack web application using Node.js and Express.js with TypeScript that displays live telemetry data received via a controller area network (CAN) bus",
+                "Designed and implemented AngularJS components that display data fed thorugh Socket.IO websockets",
+                "Created asynchronous pipeline of mock telemtry data, allowing efficient testing of new components",
             ]
         }
     ];
 
     return (
-        <div id="experience" className='min-h-screen scroll-mt-25 mt-20 md:mt-0w-11/12 lg:w-4xl'>
+        <div id="experience" className='min-h-screen scroll-mt-25 mt-20 md:mt-0 w-11/12 lg:w-4xl'>
             <div className="w-full text-left mb-10">
                 <h1 className="font-extrabold text-3xl underline underline-offset-8 decorationblue-500">EXPERIENCE</h1>
             </div>

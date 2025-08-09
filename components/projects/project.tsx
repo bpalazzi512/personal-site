@@ -15,7 +15,44 @@ import { PillGroup } from "./pill-group";
 import { fontTheme } from '@/lib/types';
 
 export function ProjectCard({ title, description, githubLink, liveLink, pillTitles, color, timeRange } : ProjectCardProps) {
-    let textColor;
+    // Function to parse markdown-like links [text](url)
+    const parseDescription = (text: string) => {
+        const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+        const parts = [];
+        let lastIndex = 0;
+        let match;
+
+        while ((match = linkRegex.exec(text)) !== null) {
+            // Add text before the link
+            if (match.index > lastIndex) {
+                parts.push(text.slice(lastIndex, match.index));
+            }
+            
+            // Add the link
+            parts.push(
+                <a 
+                    key={match.index}
+                    href={match[2]} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`${textColor} underline hover:opacity-80 transition-transform duration-100 hover:scale-109`}
+                >
+                    {match[1]}
+                </a>
+            );
+            
+            lastIndex = match.index + match[0].length;
+        }
+        
+        // Add remaining text
+        if (lastIndex < text.length) {
+            parts.push(text.slice(lastIndex));
+        }
+        
+        return parts.length > 0 ? parts : text;
+    };
+
+    let textColor: string;
     let borderColor;
     let shadowColor;
     switch (color) {
@@ -65,7 +102,7 @@ export function ProjectCard({ title, description, githubLink, liveLink, pillTitl
                     <p className="text-gray-500">{timeRange}</p>
                 </div>
             </div>
-            <p className="text-gray-500">{description}</p>
+            <p className="text-gray-500">{parseDescription(description)}</p>
             <PillGroup pillTitles={pillTitles} fontTheme={color} />
         </div>
     );
