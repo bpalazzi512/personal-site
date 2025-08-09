@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { CornerRightUpIcon, Loader2, CheckCircle, XCircle } from 'lucide-react';
-import { sendEmail } from '@/lib/actions/gmail';
+import { sendEmails } from '@/lib/actions/gmail';
 import { cn } from '@/lib/utils';
 import { Filter } from 'bad-words';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -246,40 +246,8 @@ export function Contact() {
 
         setLoading(true);
         try {
-            // Email to Bobby (notification)
-            const bobbySubject = `New Contact Form Submission from ${name}`;
-            const bobbyHtmlBody = `
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                    <h2 style="color: #333;">New Contact Form Submission</h2>
-                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                        <p><strong>Name:</strong> ${name}</p>
-                        <p><strong>Email:</strong> ${email}</p>
-                        <p><strong>Message:</strong></p>
-                        <div style="white-space: pre-wrap; margin-top: 10px;">${message}</div>
-                    </div>
-                    <p style="color: #666; font-size: 14px;">Sent from your personal website contact form.</p>
-                </div>
-            `;
-            // Email to user (confirmation)
-            const userSubject = `Thanks for reaching out, ${name}!`;
-            const userHtmlBody = `
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                    <h2 style="color: #333;">Thank you for your message!</h2>
-                    <p>Hi ${name},</p>
-                    <p>I've received your message and will get back to you as soon as possible. Here's a copy of what you sent:</p>
-                    <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                        <div style="white-space: pre-wrap;">${message}</div>
-                    </div>
-                    <p>Best regards,<br>Bobby Palazzi</p>
-                    <p style="color: #666; font-size: 14px;">This is an automated confirmation email from bobbypalazzi.com</p>
-                </div>
-            `;
-
-            // Send both emails
-            await Promise.all([
-                sendEmail('bobbypalazzi@gmail.com', bobbySubject, bobbyHtmlBody, recaptchaToken),
-                sendEmail(email, userSubject, userHtmlBody, recaptchaToken)
-            ]);
+            // Send both emails with recaptcha verification
+            await sendEmails(name, email, message, recaptchaToken);
             
             setSuccess(true);
             setEmail('');
