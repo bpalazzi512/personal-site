@@ -37,6 +37,7 @@ export function Contact() {
     // Recaptcha state
     const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
     const [recaptchaError, setRecaptchaError] = useState<string | null>(null);
+    const [showPhone, setShowPhone] = useState(false);
     
     const emailDebounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
     const nameDebounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -285,9 +286,21 @@ export function Contact() {
                 <p className='text-gray-600 text-lg'>
                     School Email: <a href='mailto:palazzi.r@northeastern.edu' className='font-bold'>palazzi.r@northeastern.edu</a>
                 </p>
-                <p className='text-gray-600 text-lg'>
-                    Phone: <span className='font-bold'>201-259-4652</span>
-                </p>
+                <div className='flex flex-row items-center space-x-3 h-10'>
+                    <p className='text-gray-600 text-lg'>Phone:</p>
+                    <div className='w-44 flex justify-center'>
+                        {!showPhone ? (
+                            <button
+                                onClick={() => setShowPhone(true)}
+                                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md transition-colors duration-200 text-gray-700 font-medium"
+                            >
+                                Reveal
+                            </button>
+                        ) : (
+                            <span className='text-gray-600 text-lg font-bold'>201-259-4652</span>
+                        )}
+                    </div>
+                </div>
             </div>
             <p className='text-gray-400 text-lg mt-5 mb-5 w-10/12'>
                 Or, you can fill out the form below:
