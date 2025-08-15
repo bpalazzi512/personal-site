@@ -10,7 +10,7 @@ export function Experience() {
                 "Designing and implementing the creation of cloud infrastructure across 15+ different environments using Terraform",
                 "Collaborating across 10+ development/DevOps teams to align projects, releases, and patches",
                 "Managing applications, services, and automatiuons on Kubernetes clusters using custom Helm charts and Argo CD",
-                "Building and maintaining CI/CD pipelines and batch job orchestrations across Azure and AWS", 
+                "Building and maintaining CI/CD pipelines and batch job orchestrations across Azure and GCP", 
                 "Refactored custom Kubernetes controller written in Go to align with the Kubernetes API standard of conditions",
                 "Created an Azure logic app integrated with the Slack/Office365 API to notify our team of any new public-facing infrastructure that gets provisioned", 
                 "Consolidated legacy Terraform configuration and moved still-relevant code into existing modules",
