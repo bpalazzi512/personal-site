@@ -5,16 +5,17 @@ export function Experience() {
         {
             title: "DevOps Software Engineer Co-op",
             company: "Wolters Kluwer",
-            period: "January 2025 - Present",
+            period: "January 2025 - August 2025",
             description: [
-                "Designing and implementing the creation of cloud infrastructure across 15+ different environments using Terraform",
-                "Collaborating across 10+ development/DevOps teams to align projects, releases, and patches",
-                "Managing applications, services, and automatiuons on Kubernetes clusters using custom Helm charts and Argo CD",
-                "Building and maintaining CI/CD pipelines and batch job orchestrations across Azure and GCP", 
-                "Refactored custom Kubernetes controller written in Go to align with the Kubernetes API standard of conditions",
+                "Designed and implemented the creation of cloud infrastructure across Azure and GCP using Terraform while maintaining and building CI/CD pipelines across 15+ different environments",
+                "Managed Kubernetes cluster services like ExternalDNS, cert-manager, External Secrets Operator, and Linkerd alongside application deployments using Helm charts and Argo CD to eliminate manual configuration",
+                "Expanded custom Kubernetes controller written in Go in conjunction with the Operator SDK to automate secret retrieval, namespace annotation, and Argo CD configuration",
+                "Collaborated across 10+ development/DevOps teams to assist app releases, plan projects, and remediate incidents",
                 "Created an Azure logic app integrated with the Slack/Office365 API to notify our team of any new public-facing infrastructure that gets provisioned", 
-                "Consolidated legacy Terraform configuration and moved still-relevant code into existing modules",
-                "Improved error messages across our Helm charts to account for complex, layered configuration that previously made debugging difficult",
+                "Refactored legacy Terraform call sites and moved still-relevant code into existing modules",
+                "Improved error messages and unit testing across our Helm charts to account for complex, layered configuration that previously made debugging difficult",
+                "Configured Kubernetes-hosted Jenkins instance to reload on any changes made to secrets or config maps containing configuration-as-code details",
+                "Pioneered proof-of-concept implementation of atlantis (https://github.com/runatlantis/atlantis) in our repositories to check for unapplied changes to infrastructure",
             ]
         },
         {
