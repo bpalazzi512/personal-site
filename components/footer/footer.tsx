@@ -6,7 +6,7 @@ export function Footer() {
             <div className="max-w-4xl mx-auto px-4 flex flex-col items-center space-y-4">
                 <div className="flex flex-row space-x-6">
                     <a 
-                        href="https://www.linkedin.com/in/bobby-palazzi/" 
+                        href="https://www.linkedin.com/in/robert-palazzi/" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className='transition-transform duration-100 hover:scale-110'
@@ -15,7 +15,7 @@ export function Footer() {
                     </a>
 
                     <a 
-                        href="https://www.github.com/bpalazz512" 
+                        href="https://www.github.com/bpalazzi512" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className='transition-transform duration-100 hover:scale-110'
