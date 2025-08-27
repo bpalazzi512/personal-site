@@ -7,7 +7,7 @@ export function Experience() {
             company: "Wolters Kluwer",
             period: "January 2025 - August 2025",
             description: [
-                "Designed and implemented the creation of cloud infrastructure across Azure and GCP using Terraform while maintaining and building CI/CD pipelines across 15+ different environments",
+                "Designed and implemented the creation of cloud infrastructure across Azure and GCP using Terraform while building and maintaining CI/CD pipelines across 15+ different environments",
                 "Managed Kubernetes cluster services like ExternalDNS, cert-manager, External Secrets Operator, and Linkerd alongside application deployments using Helm charts and Argo CD to eliminate manual configuration",
                 "Expanded custom Kubernetes controller written in Go in conjunction with the Operator SDK to automate secret retrieval, namespace annotation, and Argo CD configuration",
                 "Collaborated across 10+ development/DevOps teams to assist app releases, plan projects, and remediate incidents",
