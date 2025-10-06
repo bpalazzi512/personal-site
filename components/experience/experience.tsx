@@ -3,6 +3,14 @@ import { ExperienceCard } from './card';
 export function Experience() {
     const experiences = [
         {
+            title: "Incoming Cloud Software Engineer Co-op",
+            company: "MORSE Corp",
+            period: "October 2025 - Present",
+            description: [
+                "January 2026 - June 2026 (Expected)"
+            ]
+        },
+        {
             title: "DevOps Software Engineer Co-op",
             company: "Wolters Kluwer",
             period: "January 2025 - August 2025",
