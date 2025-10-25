@@ -15,9 +15,9 @@ export function Experience() {
             company: "Wolters Kluwer",
             period: "January 2025 - August 2025",
             description: [
-                "Designed and implemented the creation of cloud infrastructure across Azure and GCP using Terraform while building and maintaining CI/CD pipelines across 15+ different environments",
-                "Managed Kubernetes cluster services like ExternalDNS, cert-manager, External Secrets Operator, and Linkerd alongside application deployments using Helm charts and Argo CD to eliminate manual configuration",
-                "Expanded custom Kubernetes controller written in Go in conjunction with the Operator SDK to automate secret retrieval, namespace annotation, and Argo CD configuration",
+                "Designed and implemented cloud infrastructure across Azure and GCP using Terraform while building and maintaining CI/CD pipelines across 15+ different environments to support 99.99+% uptime",
+                "Managed Kubernetes cluster services including Argo CD  and Linkerd alongside application deployments; Used Helm charts and Bash/Python scripts to automate manual configuration steps",
+                "Expanded custom Kubernetes controller written in Go in conjunction with the Operator SDK to automate secret retrieval, namespace annotation, and Argo CD configuration, cutting cluster configuration time by 40%",
                 "Collaborated across 10+ development/DevOps teams to assist app releases, plan projects, and remediate incidents",
                 "Created an Azure logic app integrated with the Slack/Office365 API to notify our team of any new public-facing infrastructure that gets provisioned", 
                 "Refactored legacy Terraform call sites and moved still-relevant code into existing modules",
@@ -27,14 +27,16 @@ export function Experience() {
             ]
         },
         {
-            title: "Student Innovation Developer",
+            title: "Full Stack Developer",
             company: "Khoury College",
             period: "June 2024 - December 2024",
             description: [
-                "Developed new and updated existing features in module-based learning platform, including a customized content creation portal, role-based access control, and group management using Next.js, Tailwind CSS, and Strapi CMS (see the repo [here](https://github.com/KhourySpecialProjects/odyssey) and the live site [here](https://khouryodyssey.org/))",
-                "Implemented CI/CD pipelines using GitHub Actions for staging and production workflows",
-                "Containerized system services with Docker, migrated application to AWS EKS for efficient testing and scaling",
-                "Generated thorough system architecture diagrams and documentation for the platform, reducing ramp-up time for new contributors"
+                "Led development of module-based learning platform with 500+ MAU used by Northeastern University students and faculty, built with Next.js, Tailwind CSS, PostgreSQL, and Strapi CMS (see the repo [here](https://github.com/KhourySpecialProjects/odyssey) and the live site [here](https://khouryodyssey.org/))",
+                "Architected Kubernetes-based production environment for reliability and autoscaling using AWS (EKS, RDS, S3)", 
+                "Implemented CI/CD pipelines for staging and development workflows utilizing GitHub Actions",
+                "Engineered a responsive content-creation portal serving 50+ staff contributors, cutting content delivery timeline by 60%",
+                "Generated thorough system architecture diagrams and documentation for the platform, reducing ramp-up time for new contributors by 60%",
+                "Created containerized local development environment using Docker Compose for easy setup and testing",
             ]
         }, 
         {

@@ -13,6 +13,16 @@ interface Project {
 
 const projects : Project[]= [
     {
+        title: "DubOps",
+        description: "An AI-powered DevOps Automation platform that uses AWS Bedrock to to analyze GitHub repos and automatically generate AWS Infrastrucutre as Code (IaC) configurations with Terraform and Docker. Won 1st prize for best use of AI (AWS Track) at University of Washington's DubHacks 2025.",
+        githubLink: "",
+        liveLink: "https://devpost.com/software/dubops?_gl=1*e717zm*_gcl_au*MTgyNTg5NDgwNS4xNzYwODE4NTI5*_ga*MTI2MzY4MTYxMS4xNzYwODE4NTI5*_ga_0YHJK3Y10M*czE3NjEwMDUxMDAkbzYkZzEkdDE3NjEwMDUxNjMkajU5JGwwJGgw",
+        pillTitles: ["TypeScript", "React", "Next.js", "Python", "Flask",
+        "AWS Bedrock", "Terraform", "Docker"],
+        color: "dubops",
+        timeRange: "October 2025 - Present"
+    },
+    {
         title: "Roadar",
         description: "A crowdsourced roadside assistance mobile app with the aim of connecting mechanics with stranded passengers. Built in 36 hours for Northeastern's student-run HackBeanpot.",
         githubLink: "https://github.com/abhikaboy/roadar", // Replace with actual GitHub link 

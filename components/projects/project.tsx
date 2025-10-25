@@ -56,6 +56,11 @@ export function ProjectCard({ title, description, githubLink, liveLink, pillTitl
     let borderColor;
     let shadowColor;
     switch (color) {
+        case "dubops":
+            textColor = "text-dubops";
+            borderColor = "border-dubops";
+            shadowColor = "shadow-dubops";
+            break;
         case "roadar":
             textColor = "text-roadar";
             borderColor = "border-roadar";

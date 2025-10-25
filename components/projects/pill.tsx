@@ -3,6 +3,9 @@ import { fontTheme } from "@/lib/types";
 export const Pill = ({ title, fontTheme} : { title : string, fontTheme : fontTheme}) => {
     let bgColor;
     switch (fontTheme) {
+        case "dubops":
+            bgColor = "bg-dubops";
+            break;
         case "roadar":
             bgColor = "bg-roadar";
             break;
