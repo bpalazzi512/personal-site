@@ -28,7 +28,7 @@ export function About() {
             <h1 className="font-semibold text-3xl mt-2">Hi, I&apos;m Bobby</h1>
             
             <h2 className="px-4 mt-4 text-center">
-                I&apos;m a rising 3rd year Computer Science and Math student at Northeastern University with a passion for problem solving and learning. I love building whatever I can think of. I&apos;m most interested in cloud infrastructure - a passion I found while on co-op at Wolters Kluwer. Outside of my technical interests, you can find me in the gym, listening to music, or running obstacle course races (shoutout <a href="https://www.instagram.com/eliteheatnu/" target="_blank" rel="noopener noreferrer" className="underline">Elite Heat</a>).
+                I&apos;m a 3rd year Computer Science and Math student at Northeastern University with a passion for problem solving and learning. I love building whatever I can think of. I&apos;m most interested in cloud infrastructure - a passion I found while on co-op at Wolters Kluwer. Outside of my technical interests, you can find me in the gym, listening to music, or running obstacle course races (shoutout <a href="https://www.instagram.com/eliteheatnu/" target="_blank" rel="noopener noreferrer" className="underline">Elite Heat</a>).
             </h2>
             <div className="flex flex-row mt-6 p-4 min-w-36 justify-between">
                 <a href="https://www.linkedin.com/in/robert-palazzi/" target="_blank" rel="noopener noreferrer" className='transition-transform duration-100 hover:scale-110'>
