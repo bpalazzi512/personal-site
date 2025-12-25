@@ -4,9 +4,11 @@ import headshot from '../../public/headshot-no-bg.png';
 import Image from 'next/image'
 import { WavyUnderline } from '../ui/wavy-underline';
 import { useEffect, useState } from 'react';
+import Snowfall from 'react-snowfall';
 
 export function About() {
     const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+    const isWinter = new Date().getMonth() < 2 || new Date().getMonth() > 10; // 0 = January, 1 = February, 11 = December
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,6 +25,8 @@ export function About() {
     }, []);
 
     return (
+        <>
+        {isWinter && <Snowfall color="#9bbfd4" style={{ zIndex: 1000 }}/>}
         <div id="about" className="min-h-screen w-full flex flex-col items-center max-w-3xl scroll-mt-15 relative bg-white">
             <Image src={headshot} alt="" className="rounded-full object-cover w-60 h-60 border-2 border-gray-400 mt-12"/>
             <h1 className="font-semibold text-3xl mt-2">Hi, I&apos;m Bobby</h1>
@@ -70,5 +74,6 @@ export function About() {
                 </div>
             )}
         </div>
+        </>
     )
 }
