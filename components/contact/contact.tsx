@@ -5,6 +5,7 @@ import { sendEmails } from '@/lib/actions/gmail';
 import { cn } from '@/lib/utils';
 import { Filter } from 'bad-words';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { RevealButton } from '../ui/reveal-button';
 
 export function Contact() {
     const [email, setEmail] = useState('');
@@ -37,7 +38,6 @@ export function Contact() {
     // Recaptcha state
     const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
     const [recaptchaError, setRecaptchaError] = useState<string | null>(null);
-    const [showPhone, setShowPhone] = useState(false);
     
     const emailDebounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
     const nameDebounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -280,27 +280,22 @@ export function Contact() {
                 You can contact me using the following information: 
             </p>
             <div className='flex flex-col items-center space-y-3 w-full'>
-                <p className='text-gray-600 text-lg'>
-                    Personal Email: <a href='mailto:bobbypalazzi@gmail.com' className='font-bold'>bobbypalazzi@gmail.com</a>
-                </p>
-                <p className='text-gray-600 text-lg'>
-                    School Email: <a href='mailto:palazzi.r@northeastern.edu' className='font-bold'>palazzi.r@northeastern.edu</a>
-                </p>
-                <div className='flex flex-row items-center space-x-3 h-10'>
-                    <p className='text-gray-600 text-lg'>Phone:</p>
-                    <div className='w-44 flex justify-center'>
-                        {!showPhone ? (
-                            <button
-                                onClick={() => setShowPhone(true)}
-                                className="cursor-pointer px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md transition-colors duration-200 text-gray-700 font-medium"
-                            >
-                                Reveal
-                            </button>
-                        ) : (
-                            <span className='text-gray-600 text-lg font-bold'>201-259-4652</span>
-                        )}
-                    </div>
-                </div>
+                <RevealButton 
+                    label="Personal Email" 
+                    value="bobbypalazzi@gmail.com" 
+                    isLink={true}
+                    linkHref="mailto:bobbypalazzi@gmail.com"
+                />
+                <RevealButton 
+                    label="School Email" 
+                    value="palazzi.r@northeastern.edu" 
+                    isLink={true}
+                    linkHref="mailto:palazzi.r@northeastern.edu"
+                />
+                <RevealButton 
+                    label="Phone" 
+                    value="201-259-4652" 
+                />
             </div>
             <p className='text-gray-400 text-lg mt-5 mb-5 w-10/12'>
                 Or, you can fill out the form below:
