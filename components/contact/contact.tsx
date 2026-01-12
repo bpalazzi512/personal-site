@@ -5,7 +5,6 @@ import { sendEmails } from '@/lib/actions/gmail';
 import { cn } from '@/lib/utils';
 import { Filter } from 'bad-words';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { RevealButton } from '../ui/reveal-button';
 
 export function Contact() {
     const [email, setEmail] = useState('');
@@ -276,29 +275,9 @@ export function Contact() {
             <div className="w-full text-left mb-10">
                 <h1 className="font-extrabold text-3xl underline underline-offset-8 decorationblue-500">CONTACT</h1>
             </div>
-            <p className='text-gray-400 text-lg mb-5 w-10/12'>
-                You can contact me using the following information: 
-            </p>
-            <div className='flex flex-col items-center space-y-3 w-full'>
-                <RevealButton 
-                    label="Personal Email" 
-                    value="bobbypalazzi@gmail.com" 
-                    isLink={true}
-                    linkHref="mailto:bobbypalazzi@gmail.com"
-                />
-                <RevealButton 
-                    label="School Email" 
-                    value="palazzi.r@northeastern.edu" 
-                    isLink={true}
-                    linkHref="mailto:palazzi.r@northeastern.edu"
-                />
-                <RevealButton 
-                    label="Phone" 
-                    value="201-259-4652" 
-                />
-            </div>
+            
             <p className='text-gray-400 text-lg mt-5 mb-5 w-10/12'>
-                Or, you can fill out the form below:
+                Fill out the following form, and I&apos;ll get back to you
             </p>
             
             <form className='flex flex-col items-center space-y-3 w-full' onSubmit={handleSubmit}>
