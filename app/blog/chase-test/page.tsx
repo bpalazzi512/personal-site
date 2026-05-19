@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { AuthProvider } from '@/components/auth/AuthProvider'
 
 export const metadata = {
@@ -12,9 +13,9 @@ export default function BlogPost() {
         {/* Nav */}
         <nav className="w-full border-b border-gray-100 px-6 py-4">
           <div className="max-w-3xl mx-auto flex items-center justify-between">
-            <a href="/" className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+            <Link href="/" className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
               ← Bobby Palazzi
-            </a>
+            </Link>
             <span className="text-xs text-gray-400 uppercase tracking-widest font-medium">Blog</span>
           </div>
         </nav>
@@ -57,79 +58,120 @@ export default function BlogPost() {
           {/* Body */}
           <div className="prose-custom">
             <p className="text-xl leading-relaxed text-gray-700 font-medium mb-8">
-              I almost didn't go.
+              I almost didn&apos;t go.
             </p>
 
             <p>
-              I had a project deadline looming, a Jira board that looked like a crime scene, and approximately zero reasons to spend ten days driving through Utah and Arizona with a cooler full of mediocre grocery store sandwiches. But my friend Danny called one afternoon, said he had a truck, a week off, and a vague itinerary that started with "go west," and somehow that was enough.
+              I had a project deadline looming, a Jira board that looked like a crime scene, and approximately zero
+              reasons to spend ten days driving through Utah and Arizona with a cooler full of mediocre grocery store
+              sandwiches. But my friend Danny called one afternoon, said he had a truck, a week off, and a vague
+              itinerary that started with &ldquo;go west,&rdquo; and somehow that was enough.
             </p>
 
             <p>
-              We left on a Tuesday. No particular reason — Danny had a work thing Monday and I had a dentist appointment I'd been rescheduling since October. We loaded up at 5am, split a gas station coffee that tasted like burnt ambition, and merged onto I-80 heading toward the sunrise.
+              We left on a Tuesday. No particular reason &mdash; Danny had a work thing Monday and I had a dentist
+              appointment I&apos;d been rescheduling since October. We loaded up at 5am, split a gas station coffee
+              that tasted like burnt ambition, and merged onto I-80 heading toward the sunrise.
             </p>
 
             <p>
-              I want to say the first few days were transformative. They weren't. They were mostly just long. Long stretches of flat highway with nothing but the hum of the engine and a Spotify playlist we both silently judged each other for adding songs to. But somewhere around Moab — driving down a red canyon road with the windows down and Neutral Milk Hotel playing too loud — something in me actually started to let go.
+              I want to say the first few days were transformative. They weren&apos;t. They were mostly just long.
+              Long stretches of flat highway with nothing but the hum of the engine and a Spotify playlist we both
+              silently judged each other for adding songs to. But somewhere around Moab &mdash; driving down a red
+              canyon road with the windows down and Neutral Milk Hotel playing too loud &mdash; something in me
+              actually started to let go.
             </p>
 
             <h2>The part nobody talks about</h2>
 
             <p>
-              There's a version of a road trip that exists in Instagram posts and travel blogs: golden hour shots, perfectly packed gear, meaningful gazes toward distant horizons. That's not what this was. This was sunburned shoulders and shoes that smelled like camping and a distinct lack of cell signal at exactly the moments you needed it most.
+              There&apos;s a version of a road trip that exists in Instagram posts and travel blogs: golden hour
+              shots, perfectly packed gear, meaningful gazes toward distant horizons. That&apos;s not what this was.
+              This was sunburned shoulders and shoes that smelled like camping and a distinct lack of cell signal at
+              exactly the moments you needed it most.
             </p>
 
             <p>
-              But here's the thing — the discomfort was sort of the point.
+              But here&apos;s the thing &mdash; the discomfort was sort of the point.
             </p>
 
             <p>
-              I spend most of my waking hours in front of a screen, which sounds like a complaint but is really just a fact of my life that I've made peace with. I like what I do. But there's a particular kind of mental fatigue that comes with always being reachable, always a notification away from someone else's priority. Out there, in the canyons, that pressure just evaporated. Not because I was suddenly enlightened, but because there was literally no signal.
+              I spend most of my waking hours in front of a screen, which sounds like a complaint but is really just
+              a fact of my life that I&apos;ve made peace with. I like what I do. But there&apos;s a particular kind
+              of mental fatigue that comes with always being reachable, always a notification away from someone
+              else&apos;s priority. Out there, in the canyons, that pressure just evaporated. Not because I was
+              suddenly enlightened, but because there was literally no signal.
             </p>
 
             <p>
-              We hiked Angels Landing in Zion. If you've done it, you know. If you haven't — it's a switchback trail that becomes a chain-assisted scramble up a knife-edge ridge with sheer drops on both sides. I'm not particularly afraid of heights, but at one point I was hugging a rock face thinking about my life choices in a very immediate and concrete way. Danny, who has the self-preservation instincts of a golden retriever, was twelve feet ahead of me grinning and taking a video.
+              We hiked Angels Landing in Zion. If you&apos;ve done it, you know. If you haven&apos;t &mdash;
+              it&apos;s a switchback trail that becomes a chain-assisted scramble up a knife-edge ridge with sheer
+              drops on both sides. I&apos;m not particularly afraid of heights, but at one point I was hugging a rock
+              face thinking about my life choices in a very immediate and concrete way. Danny, who has the
+              self-preservation instincts of a golden retriever, was twelve feet ahead of me grinning and taking a
+              video.
             </p>
 
             <p>
-              We made it to the top. The view was one of those things that makes you feel small in exactly the right way.
+              We made it to the top. The view was one of those things that makes you feel small in exactly the right
+              way.
             </p>
 
             <h2>What I actually brought home</h2>
 
             <p>
-              I didn't come back with any revelations about purpose or destiny. That feels like too grand a thing to claim from ten days in a truck. But I did notice some things.
+              I didn&apos;t come back with any revelations about purpose or destiny. That feels like too grand a
+              thing to claim from ten days in a truck. But I did notice some things.
             </p>
 
             <p>
-              I've been going to bed earlier. This is boring to report but genuinely meaningful to me. There's something about spending a week waking up with the sun that recalibrated whatever internal clock I'd broken with years of late-night debugging sessions.
+              I&apos;ve been going to bed earlier. This is boring to report but genuinely meaningful to me.
+              There&apos;s something about spending a week waking up with the sun that recalibrated whatever internal
+              clock I&apos;d broken with years of late-night debugging sessions.
             </p>
 
             <p>
-              I cook more. We made dinner over a camp stove most nights — nothing complicated, usually pasta or rice with whatever we'd picked up — and there was something satisfying about it that I can't fully articulate. I think it's the directness of it. You're hungry. You cook. You eat. There's no abstraction layer between the problem and the solution.
+              I cook more. We made dinner over a camp stove most nights &mdash; nothing complicated, usually pasta
+              or rice with whatever we&apos;d picked up &mdash; and there was something satisfying about it that I
+              can&apos;t fully articulate. I think it&apos;s the directness of it. You&apos;re hungry. You cook.
+              You eat. There&apos;s no abstraction layer between the problem and the solution.
             </p>
 
             <p>
-              I check my phone less first thing in the morning. This is the hardest one to maintain, and I'm not going to pretend I've been perfect about it. But I've been trying. Ten minutes in the morning where I don't immediately start processing the world has made a surprising difference in how I feel by noon.
+              I check my phone less first thing in the morning. This is the hardest one to maintain, and I&apos;m
+              not going to pretend I&apos;ve been perfect about it. But I&apos;ve been trying. Ten minutes in the
+              morning where I don&apos;t immediately start processing the world has made a surprising difference in
+              how I feel by noon.
             </p>
 
             <h2>On coming back</h2>
 
             <p>
-              The first day back was hard. Not in a dramatic way — more like the quiet deflation of a good weekend ending. I sat at my desk, opened my laptop, and felt the full weight of the backlog I'd accumulated. It took about three days to get my footing again.
+              The first day back was hard. Not in a dramatic way &mdash; more like the quiet deflation of a good
+              weekend ending. I sat at my desk, opened my laptop, and felt the full weight of the backlog I&apos;d
+              accumulated. It took about three days to get my footing again.
             </p>
 
             <p>
-              But I kept a photo on my desktop: Danny standing on the edge of a cliff in Bryce Canyon, silhouetted against an improbably pink sky, arms stretched out like an idiot. It's a bad photo technically. The exposure is off. He's too small in the frame. But every time I see it I remember that the world is bigger than whatever's in front of me right now, and that's been worth more than I expected.
+              But I kept a photo on my desktop: Danny standing on the edge of a cliff in Bryce Canyon, silhouetted
+              against an improbably pink sky, arms stretched out like an idiot. It&apos;s a bad photo technically.
+              The exposure is off. He&apos;s too small in the frame. But every time I see it I remember that the
+              world is bigger than whatever&apos;s in front of me right now, and that&apos;s been worth more than I
+              expected.
             </p>
 
             <p>
-              I'll probably go again next year. Maybe further west. Maybe south. Doesn't really matter. The point isn't the destination. I know that sounds like a bumper sticker. But after ten days of driving through some of the most beautiful country I've ever seen, I think I finally believe it.
+              I&apos;ll probably go again next year. Maybe further west. Maybe south. Doesn&apos;t really matter.
+              The point isn&apos;t the destination. I know that sounds like a bumper sticker. But after ten days of
+              driving through some of the most beautiful country I&apos;ve ever seen, I think I finally believe it.
             </p>
 
             {/* Closing note */}
             <div className="mt-12 pt-8 border-t border-gray-100">
               <p className="text-sm text-gray-400 italic">
-                If you made it this far — thanks for reading. This is my first attempt at writing something longer than a README, so I appreciate the patience. If you have trip recommendations, shoot me a message.
+                If you made it this far &mdash; thanks for reading. This is my first attempt at writing something
+                longer than a README, so I appreciate the patience. If you have trip recommendations, shoot me a
+                message.
               </p>
             </div>
           </div>
