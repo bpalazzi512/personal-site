@@ -1,13 +1,28 @@
 import { ExperienceCard } from './card';
 
 export function Experience() {
-    const experiences = [
+  const experiences = [
+    {
+      title: "Software Engineer Intern",
+      company: "Intuit",
+      period: "June 2026 - Present",
+      description: [
+        "Engineer on Intuit’s Vibe App Platform, a distributed multi-agent AI system that crafts custom dashboards from natural language prompts; integrated with live-fed API data sandboxed in a Kubernetes pod",
+        "Architecting the platform’s snapshot-publishing system, a new parallel publish mode that lets authors share fully interactive copies of their built applications to a publicly-accessible URL"
+
+      ]
+          
+        },
         {
             title: "Cloud Software Engineer Co-op",
             company: "MORSE Corp",
-            period: "January 2026 - Present",
+            period: "January 2026 - June 2026",
             description: [
-                "Kubernetes, Terraform, Helm, etc."
+              "Architected Kubernetes-based cloud environment using Terraform and Helm on AWS used by 30+ ML engineers",
+            "Developed Apache Airflow DAGs to parallelize testing and evaluation of AI/ML models",
+            "Centralized 100+ Helm charts and Docker container images to standardize organization-wide deployments",
+            "Created reusable Helm chart for managing startup dependencies between 10+ Kubernetes services, reducing deployment failures by 80%",
+
             ]
         },
         {

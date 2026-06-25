@@ -20,7 +20,7 @@ const projects : Project[]= [
         pillTitles: ["TypeScript", "React", "Next.js", "Python", "Flask",
         "AWS Bedrock", "Terraform", "Docker"],
         color: "dubops",
-        timeRange: "October 2025 - Present"
+        timeRange: "October 2025 - January 2026"
     },
     {
         title: "Roadar",
