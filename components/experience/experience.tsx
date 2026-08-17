@@ -7,9 +7,8 @@ export function Experience() {
       company: "Intuit",
       period: "June 2026 - Present",
       description: [
-        "Engineer on Intuit’s Vibe App Platform, a distributed multi-agent AI system that crafts custom dashboards from natural language prompts; integrated with live-fed API data sandboxed in a Kubernetes pod",
-        "Architecting the platform’s snapshot-publishing system, a new parallel publish mode that lets authors share fully interactive copies of their built applications to a publicly-accessible URL"
-
+        "Building the first node-level evaluation harness for Intuit Builder, a 22-node LangGraph agent that generates QuickBooks dashboards from natural-language prompts; using LLM-as-a-judge and N-sample thresholds for non-deterministic nodes",
+        "Developed Claude skill to automate generation of test cases using agent traces, live customer session data, and Slack discussions; streamlining developer adoption of the testing framework",
       ]
           
         },
