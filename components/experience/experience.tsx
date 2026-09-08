@@ -5,7 +5,7 @@ export function Experience() {
     {
       title: "Software Engineer Intern",
       company: "Intuit",
-      period: "June 2026 - Present",
+      period: "June 2026 - September 2026",
       description: [
         "Building the first node-level evaluation harness for Intuit Builder, a 22-node LangGraph agent that generates QuickBooks dashboards from natural-language prompts; using LLM-as-a-judge and N-sample thresholds for non-deterministic nodes",
         "Developed Claude skill to automate generation of test cases using agent traces, live customer session data, and Slack discussions; streamlining developer adoption of the testing framework",
